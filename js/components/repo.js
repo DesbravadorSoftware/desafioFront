@@ -16,13 +16,13 @@
     if (this.loading) return "Loading...";
 
     return `
-      <div class="repoSection">
-        <h3 class="sectionTitle">${repo.name}</h3>
-        <div class="details">
-          <p><span class="bold">Description:</span>: ${repo.description || 'No description'}</p>
-          <p><span class="bold">Stars:</span>: ${repo.stargazers_count}</p>
-          <p><span class="bold">Language:</span>: ${repo.language || 'No language'}</p>
-          <a href="${repo.html_url}">View On GitHub -></a>
+      <div class="repoSection userSection">
+        <h3 class="repoTitle title"><a href="${repo.html_url}">${repo.full_name}</a></h3>
+        <h3 class="sectionTitle topSpace">${repo.name}</h3>
+        <div class="repoDetails">
+        <p><span class="bold">Stars:</span>: ${repo.stargazers_count}</p>
+        <p><span class="bold">Language:</span>: ${repo.language || 'No language'}</p>
+        <p><span class="bold">Description:</span>: ${repo.description || 'No description'}</p>
         </div>
       </div>
       `;
