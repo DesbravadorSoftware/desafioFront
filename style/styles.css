@@ -1,0 +1,135 @@
+body {
+  color: #333;
+  background-color: #e5f9eb;
+  font-family: "Open Sans";
+}
+
+input, label {
+  display: block;
+  width: 30%;
+}
+
+label {
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+input {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+header {
+  background-color: #4db36f;
+  padding: 1rem;
+  box-shadow: 0 1px 1px #999;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  position: relative;
+  min-height: calc(100vh - 200px);
+}
+
+footer {
+  padding: 1rem;
+  background-color: #333;
+  color: #eee;
+}
+
+.centerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+}
+
+.userSection {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 30px;
+}
+
+.sectionTitle {
+  margin-bottom: 3rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.user {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10%;
+}
+
+.userDetails {
+  display: flex;
+}
+
+.details {
+  margin-left: 30px;
+  align-self: center;
+}
+
+.details p {
+  font-size: 1.3rem;
+}
+
+.details p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.repo {
+  margin-bottom: .5rem;
+  padding: 10px;
+  display: flex;
+}
+
+.repoLine :hover{
+  background-color: #bbe8c9;
+  border-radius: 10px;
+}
+
+.repo :not(:last-child) {
+  margin-right: 1rem;
+}
+
+.bold{
+  font-weight: 800;
+}
+
+.avatar {
+  border-radius: 10px;
+  height: 300px;
+  width: 300px;
+}
+
+.title {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .user {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10%;
+  }
+}
