@@ -15,6 +15,12 @@ export const Repositorios = ({Repositorios}: props) => {
     const [listarTodos, setListarTodos] = useState(false);
     const [repositorioAberto, setRepositorioAberto] = useState(false);
     const [maior, setMaior] = useState(true);
+    const [repositorioSelecionado, setRepositorioSelecionado] = useState<IRepositorioType>({
+        name: "", 
+        description: "", 
+        stargazers_count: 0, 
+        language: "",
+    });
 
     //const repositorios = useSelector((state:  RepositorioState ) => state.repositorios);
 
@@ -40,15 +46,19 @@ export const Repositorios = ({Repositorios}: props) => {
         }
     }
 
-    const abrir = () => {
+    const abrir = (repo: IRepositorioType) => {
         setRepositorioAberto(true);
-        alert("executou")
+        setRepositorioSelecionado(repo);
+    }
+
+    const atualizarFiltro = () => {
+        setMaior(!maior);
     }
 
     return (
         <R.Container>
             {repositorioAberto ? (
-                <RepositorioDetalhado />
+                <RepositorioDetalhado repositorioSelecionado={repositorioSelecionado} maior={maior} atualizarFiltro={atualizarFiltro}/>
             ) : !listarTodos && !repositorioAberto ? (
                 <>
                     <div style={{display: "flex", width: "100%",justifyContent: "center", alignItems: "center"}}>
@@ -58,7 +68,7 @@ export const Repositorios = ({Repositorios}: props) => {
                     <R.TopRepositorios>
                         {Array.isArray(top6) && top6.sort(organizarEstrelas).map((repo, index) => {
                             return (
-                                <Repositorio Repositorio={repo} ListarTodos={listarTodos} abrir={() => abrir} key={index} />
+                                <Repositorio Repositorio={repo} ListarTodos={listarTodos}  abrir={(repo) => abrir(repo)} key={index} />
                             )
                         })}
                     </R.TopRepositorios>
@@ -72,7 +82,7 @@ export const Repositorios = ({Repositorios}: props) => {
                     <R.TodosRepositorios>
                         {Array.isArray(Repositorios) && Repositorios.sort(organizarEstrelas).map((repo, index) => {
                             return (
-                                <Repositorio Repositorio={repo} ListarTodos={listarTodos} abrir={() => abrir} key={index} />
+                                <Repositorio Repositorio={repo} ListarTodos={listarTodos} abrir={(repo) => abrir(repo)} key={index} />
                             )
                         })}
                     </R.TodosRepositorios>

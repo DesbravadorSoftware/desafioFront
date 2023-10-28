@@ -5,12 +5,12 @@ import { IRepositorioType } from "../../types/repositorioType";
 type repositorioProps = {
     Repositorio: IRepositorioType,
     ListarTodos: boolean,
-    abrir: ()=>void;
+    abrir: (repo: IRepositorioType) => void;
 }
 
 export const Repositorio = ({Repositorio, ListarTodos, abrir}: repositorioProps) => {
     const handleClick = () => {
-        abrir(); 
+        abrir(Repositorio);
     };
     return(
         <R.Container onClick={handleClick} style={{height: ListarTodos === true ? "200px": "", width: ListarTodos === true ? "90%" : ""}}>
