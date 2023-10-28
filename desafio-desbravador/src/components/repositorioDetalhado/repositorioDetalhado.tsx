@@ -1,6 +1,8 @@
 import React from "react";
 import * as RD from "./style";
 import { IRepositorioType } from "../../types/repositorioType";
+import { UsuarioState } from "../../types/usuarioType";
+import { useSelector } from "react-redux";
 
 type props = {
     repositorioSelecionado: IRepositorioType,
@@ -8,16 +10,15 @@ type props = {
     atualizarFiltro: ()=> void;
 }
 
-export const RepositorioDetalhado = ({repositorioSelecionado, maior, atualizarFiltro}: props) => {
-    console.log(repositorioSelecionado)
+export const RepositorioDetalhado = () => {
+
     return(
         <RD.Container>
             <div style={{display: "flex", width: "100%",justifyContent: "center", alignItems: "center"}}>
-                <h1>{repositorioSelecionado.name}</h1>
-                <img alt="filtro" src={maior ? "/icons/ordenar_maior.png" : "/icons/ordenar_menor.png"} onClick={atualizarFiltro}/>
+                <h1>nome</h1>
             </div>
-            <p>{repositorioSelecionado.description}</p>
-            <label>{repositorioSelecionado.language}</label>
+            <p>descricao</p>
+            <label>linguagem</label>
             <label>{}</label>
         </RD.Container>
     )

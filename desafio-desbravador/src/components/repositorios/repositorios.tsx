@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { RepositorioDetalhado } from "../repositorioDetalhado/repositorioDetalhado";
 import { IRepositorioType, RepositorioState } from "../../types/repositorioType";
 import { useSelector } from "react-redux";
+import { UsuarioState } from "../../types/usuarioType";
 
 export type props = {
     Repositorios: IRepositorioType[]
@@ -12,6 +13,7 @@ export type props = {
 
 export const Repositorios = ({Repositorios}: props) => {
     const navigate = useNavigate();
+    const usuario = useSelector((state: UsuarioState) => state.usuario);
     const [listarTodos, setListarTodos] = useState(false);
     const [repositorioAberto, setRepositorioAberto] = useState(false);
     const [maior, setMaior] = useState(true);
@@ -46,6 +48,12 @@ export const Repositorios = ({Repositorios}: props) => {
         }
     }
 
+    
+    async function fetchRepositorio() {
+        const response = await fetch(`https://api.github.com/repos/${}`)
+        const data = await response.json()
+    }
+
     const abrir = (repo: IRepositorioType) => {
         setRepositorioAberto(true);
         setRepositorioSelecionado(repo);
@@ -57,9 +65,7 @@ export const Repositorios = ({Repositorios}: props) => {
 
     return (
         <R.Container>
-            {repositorioAberto ? (
-                <RepositorioDetalhado repositorioSelecionado={repositorioSelecionado} maior={maior} atualizarFiltro={atualizarFiltro}/>
-            ) : !listarTodos && !repositorioAberto ? (
+            {!listarTodos && !repositorioAberto ? (
                 <>
                     <div style={{display: "flex", width: "100%",justifyContent: "center", alignItems: "center"}}>
                         <h1>TOP 6 REPOSITÓRIOS </h1>
