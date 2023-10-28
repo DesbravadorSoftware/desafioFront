@@ -6,8 +6,17 @@ export const Container = styled.div`
     color: #346E75;
     text-align: center;
     h1{
-        margin: 10px auto;
+        margin: 10px;
     }
+    img{
+        margin: 10px;
+        height: 30px;
+        width: 30px;
+    }
+    img:hover{
+        cursor: pointer;
+    }
+    
 
     @media(max-width: 480px){
         width: 100%;

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import * as B from "./style";
-import { UsuarioState } from "../../types/usuarioType";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getUsuario } from "../../store/actionCreators";
 
 export const Busca = () => {
@@ -15,28 +14,31 @@ export const Busca = () => {
     const buscar = async(e: React.KeyboardEvent<HTMLElement>) => {
         if (e.keyCode === 13) {
             e.preventDefault();
-            try {
-                const response = await fetch(`https://api.github.com/users/${busca}`);
-                if (response.status === 200) {
-                    const data = await response.json();
-                    console.log(data)
-                    dispatch(getUsuario({
-                        nome: data.nome,
-                        login: data.login,
-                        followers: data.followers,
-                        following: data.following,
-                        imagem_avatar: data.avatar_url,
-                        email: data.email,
-                        bio: data.bio
-                    }));
-                    setUsuarioEncontrado(true);
-                    navigate("/perfil");
-                } else {
-                    setUsuarioEncontrado(false);
-                }
-            } catch (error) {
-                // Lide com erros de solicitação
+            fetchDadosUsuario();
+        }
+    }
+
+    async function fetchDadosUsuario(){
+        try {
+            const response = await fetch(`https://api.github.com/users/${busca}`);
+            if (response.status === 200) {
+                const data = await response.json();
+                dispatch(getUsuario({
+                    nome: data.nome,
+                    login: data.login,
+                    followers: data.followers,
+                    following: data.following,
+                    imagem_avatar: data.avatar_url,
+                    email: data.email,
+                    bio: data.bio
+                }));
+                setUsuarioEncontrado(true);
+                navigate("/perfil");
+            } else {
+                setUsuarioEncontrado(false);
             }
+        } catch (error) {
+            setUsuarioEncontrado(false);
         }
     }
     

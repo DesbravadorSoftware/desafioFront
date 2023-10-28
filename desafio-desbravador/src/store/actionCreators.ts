@@ -2,6 +2,7 @@ import { IRepositorioType } from "../types/repositorioType";
 import { IUsuarioType  } from "../types/usuarioType";
 import * as actionTypes from "./actionTypes";
 
+// actionCreators.ts
 export function getUsuario(usuario: IUsuarioType) {
     return {
         type: actionTypes.GETUSUARIO,
@@ -9,9 +10,9 @@ export function getUsuario(usuario: IUsuarioType) {
     };
 }
 
-export function getRepositorios(repositorios: IRepositorioType[]){
+export function getRepositorios(repositorios: IRepositorioType[]) {
     return {
         type: actionTypes.GETREPOSITORIOS,
-        repositorios
-    }
+        repositorios,
+    };
 }

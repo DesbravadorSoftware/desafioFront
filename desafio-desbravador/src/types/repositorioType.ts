@@ -1,17 +1,16 @@
 export interface IRepositorioType {
-    nome: string, 
-    descrição: string, 
-    estrelas: number, 
-    linguagem: string,
+    name: string, 
+    description: string, 
+    stargazers_count: number, 
+    language: string,
 }
 
 export type RepositorioState = {
-    repositorios: IRepositorioType[]
+    repositorios: IRepositorioType[];
 }
-
 export type RepositorioAction = {
     type: string
-    repositorio: IRepositorioType
+    repositorios: IRepositorioType[]
 }
 
 export type DispatchType = (args: RepositorioAction) => RepositorioAction

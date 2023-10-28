@@ -1,16 +1,26 @@
 import React from "react";
 import * as R from "./style";
+import { IRepositorioType } from "../../types/repositorioType";
+
 type repositorioProps = {
+    Repositorio: IRepositorioType,
     ListarTodos: boolean,
-    abrir: ()=>{}
+    abrir: ()=>void;
 }
 
-export const Repositorio = ({ListarTodos, abrir}: repositorioProps) => {
+export const Repositorio = ({Repositorio, ListarTodos, abrir}: repositorioProps) => {
+    const handleClick = () => {
+        abrir(); 
+    };
     return(
-        <R.Container onClick={abrir} style={{height: ListarTodos === true ? "200px": "", width: ListarTodos === true ? "90%" : ""}}>
-            <h2>Nome do Repositório</h2>
-            <p>Descrição do Repositório</p>
-            <label style={{marginTop: "auto"}}><img alt="estrela" src="/icons/estrela.png"/>5 Estrelas</label>
+        <R.Container onClick={handleClick} style={{height: ListarTodos === true ? "200px": "", width: ListarTodos === true ? "90%" : ""}}>
+            <h2>{Repositorio.name}</h2>
+            <p>{Repositorio.description}</p>
+            <div style={{marginTop: "auto", display: "flex", width: "100%",justifyContent: "start", alignItems: "center"}}>
+                <img alt="estrela" src="/icons/estrela.png"/>
+                <label>{Repositorio.stargazers_count} Estrelas  | </label>
+                <label style={{marginLeft: "10px"}}>{Repositorio.language}</label>
+            </div>
         </R.Container>
     )
 }

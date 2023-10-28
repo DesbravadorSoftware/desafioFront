@@ -1,8 +1,8 @@
-import { RepositorioAction, RepositorioState } from "../types/repositorioType";
-import * as actionTypes from "./actionTypes"
+/*import { IRepositorioType, RepositorioAction, RepositorioState } from "../types/repositorioType";
+import * as actionTypes from "./actionTypes";
 
 const initialState: RepositorioState = {    
-    repositorios: []
+    repositorios: [] // Initialize with an empty array
 }
 
 const reducer = (
@@ -11,12 +11,23 @@ const reducer = (
 ): RepositorioState => {
     switch (action.type) {
         case actionTypes.GETREPOSITORIOS:
+            const novosRepos: IRepositorioType[] = action.repositorios.map(repo => ({
+                nome: repo.name, 
+                descrição: repo.descrição, 
+                estrelas: repo.stars, 
+                linguagem: repo.linguagem,
+            }));
+
             return {
                 ...state,
-                repositorios:  state.repositorios
+                repositorios: [...state.repositorios, ...novosRepos],
             };
+
+        default:
+            return state;
     }
-    return state
 }
 
-export default reducer
+export default reducer;
+
+*/
