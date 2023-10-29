@@ -8,11 +8,11 @@ export interface IRepositorioType {
 }
 
 export type RepositorioState = {
-    repositorios: IRepositorioType[];
+    repositorio: IRepositorioType;
 }
 export type RepositorioAction = {
     type: string
-    repositorios: IRepositorioType[]
+    repositorio: IRepositorioType
 }
 
 export type DispatchType = (args: RepositorioAction) => RepositorioAction

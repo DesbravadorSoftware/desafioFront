@@ -3,13 +3,26 @@ import * as D from "./style";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { UsuarioState } from "../../types/usuarioType";
+import { useDispatch } from "react-redux";
+import { getUsuario } from "../../store/actionCreators";
 
 export const DetalhePerfil = () =>{
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const usuario = useSelector((state: UsuarioState) => state.usuario);
 
     function buscar(){
         navigate("/");
+        localStorage.clear();
+        dispatch(getUsuario({
+            nome: "",
+            login: "",
+            followers: 0,
+            following: 0,
+            imagem_avatar: "",
+            email: "",
+            bio: ""
+        }));
     }
 
     const avatarStyle = {

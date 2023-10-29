@@ -4,7 +4,6 @@ import * as P from "./style";
 import { Repositorios } from "../../components/repositorios/repositorios";
 import { useDispatch, useSelector } from "react-redux";
 import { UsuarioState } from "../../types/usuarioType";
-import { getRepositorios } from "../../store/actionCreators";
 import { IRepositorioType } from "../../types/repositorioType";
 
 export const Perfil = () => {

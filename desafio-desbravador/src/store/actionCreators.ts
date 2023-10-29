@@ -10,9 +10,9 @@ export function getUsuario(usuario: IUsuarioType) {
     };
 }
 
-export function getRepositorios(repositorios: IRepositorioType[]) {
+export function getRepositorio(repositorio: IRepositorioType) {
     return {
-        type: actionTypes.GETREPOSITORIOS,
-        repositorios,
+        type: actionTypes.GETREPOSITORIO,
+        repositorio,
     };
 }

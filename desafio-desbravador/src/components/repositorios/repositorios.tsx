@@ -6,12 +6,15 @@ import { RepositorioDetalhado } from "../repositorioDetalhado/repositorioDetalha
 import { IRepositorioType, RepositorioState } from "../../types/repositorioType";
 import { useSelector } from "react-redux";
 import { UsuarioState } from "../../types/usuarioType";
+import { useDispatch } from "react-redux";
+import { getRepositorio } from "../../store/actionCreators";
 
 export type props = {
     Repositorios: IRepositorioType[]
 }
 
 export const Repositorios = ({Repositorios}: props) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const usuario = useSelector((state: UsuarioState) => state.usuario);
     const [listarTodos, setListarTodos] = useState(false);
@@ -24,7 +27,6 @@ export const Repositorios = ({Repositorios}: props) => {
         full_name: "",
         html_url: ""
     });
-    const [readme, setReadme] = useState("");
 
     //const repositorios = useSelector((state:  RepositorioState ) => state.repositorios);
 
@@ -53,9 +55,19 @@ export const Repositorios = ({Repositorios}: props) => {
     
     async function fetchRepositorio(repo: IRepositorioType) {
         const response = await fetch(`https://api.github.com/repos/${repo.full_name}`)
-        const data = await response.json();
-        setRepositorioSelecionado(data);
-        localStorage.setItem("repositorio", JSON.stringify(data));
+        if(response.status === 200){
+            const data = await response.json();
+            dispatch(getRepositorio({
+                name: data.name, 
+                description: data.description, 
+                stargazers_count: data.stargazers_count, 
+                language: data.language,
+                full_name: data.full_name,
+                html_url: data.html_url
+            }));
+            setRepositorioSelecionado(data);
+            localStorage.setItem("repositorio", JSON.stringify(data));
+        }
     }
 
     const abrir = async(repo: IRepositorioType) => {
