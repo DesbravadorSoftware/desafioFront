@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { DetalhePerfil } from "../../components/detalhePerfil/detalhePerfil";
 import * as P from "./style";
 import { Repositorios } from "../../components/repositorios/repositorios";

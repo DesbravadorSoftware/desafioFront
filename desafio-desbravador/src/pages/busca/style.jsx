@@ -5,7 +5,6 @@ export const Container = styled.div`
     padding: 0px;
     height: 100%;
     width: 100%;
-    background-color: #04B3C8;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,11 +12,12 @@ export const Container = styled.div`
 
     p,
     h1{
-        color: #fff;
+        color: #346E75;
         margin: 5px;
     }
 
     input{
+        background-color: rgb(61, 171, 194, 0.1);
         height: 24px;
         width: 400px;
         border: none;
@@ -41,6 +41,14 @@ export const Pesquisa = styled.div`
     width: 100%;
     position: fixed;
     top: 10%;
+    img{
+        height: 20px;
+        width: 20px;
+        margin-top: auto;
+    }
+    img:hover{
+        cursor: pointer;
+    }
 `
     
 export const Mensagem = styled.div`

@@ -12,7 +12,6 @@ export const DetalhePerfil = () => {
 
     function buscar() {
         navigate("/");
-        localStorage.clear();
         dispatch(getUsuario({
             nome: "",
             login: "",

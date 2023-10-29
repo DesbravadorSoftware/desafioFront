@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import * as R from "./style";
 import { Repositorio } from "../repositorio/repositorio";
 import { useNavigate } from "react-router-dom";
-import { RepositorioDetalhado } from "../repositorioDetalhado/repositorioDetalhado";
-import { IRepositorioType, RepositorioState } from "../../types/repositorioType";
-import { useSelector } from "react-redux";
-import { UsuarioState } from "../../types/usuarioType";
+import { IRepositorioType } from "../../types/repositorioType";
 import { useDispatch } from "react-redux";
 import { getRepositorio } from "../../store/repositorioReducer";
 
@@ -16,20 +13,8 @@ export type props = {
 export const Repositorios = ({Repositorios}: props) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const usuario = useSelector((state: UsuarioState) => state);
     const [listarTodos, setListarTodos] = useState(false);
     const [maior, setMaior] = useState(true);
-    const [repositorioSelecionado, setRepositorioSelecionado] = useState<IRepositorioType>({
-        name: "", 
-        description: "", 
-        stargazers_count: 0, 
-        language: "",
-        full_name: "",
-        html_url: ""
-    });
-
-    // const repositorios = useSelector((state: {repositorio: RepositorioState} ) => state.repositorio);
-
     const top6 = Repositorios.sort(organizarEstrelas).slice(0, 6);
 
     function organizarEstrelas(a: IRepositorioType, b: IRepositorioType){
@@ -65,8 +50,6 @@ export const Repositorios = ({Repositorios}: props) => {
                 full_name: data.full_name,
                 html_url: data.html_url
             }));
-            //setRepositorioSelecionado(data);
-            localStorage.setItem("repositorio", JSON.stringify(data));
             return data;
         }
         return null;

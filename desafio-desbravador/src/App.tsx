@@ -5,20 +5,18 @@ import { Perfil } from './pages/perfil/perfil';
 import { RepositorioDetalhado } from './components/repositorioDetalhado/repositorioDetalhado';
 import { useSelector } from 'react-redux';
 import { UsuarioState } from './types/usuarioType';
-import { IRepositorioType, RepositorioState } from './types/repositorioType';
+import { RepositorioState } from './types/repositorioType';
 
 function App() {
-  const usuario = useSelector((state: UsuarioState) => state);
-  //const repositorioRedux = useSelector((state: RepositorioState)=> state.repositorio);
-  const data = localStorage.getItem("repositorio");
-  const repositorio = data != null ? JSON.parse(data) : null;
+  const usuarioRedux = useSelector((state:{usuario: UsuarioState}) => state.usuario);
+  const repositorioRedux = useSelector((state: {repositorio: RepositorioState})=> state.repositorio);
   
   return (
     <div className="App">
       <Routes>
         <Route path='' Component={Busca} />
-        <Route path='/perfil' Component={usuario.login != "" ? Perfil : Busca}/>
-        <Route path='/:fullname' Component={usuario.login != "" ? RepositorioDetalhado : Busca}/>
+        <Route path='/perfil' Component={usuarioRedux.login != "" ? Perfil : Busca}/>
+        <Route path='/:fullname' Component={repositorioRedux.name != "" ? RepositorioDetalhado : Busca}/>
       </Routes>
     </div>
   );

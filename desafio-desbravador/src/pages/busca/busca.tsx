@@ -9,7 +9,6 @@ export const Busca = () => {
     const dispatch = useDispatch();
     const [busca, setBusca] = useState("");
     const [usuarioEncontrado, setUsuarioEncontrado] = useState(true);
-    const [pesquisando, setPesquisando] = useState(false);
 
     const buscar = async (e: React.KeyboardEvent<HTMLElement>) => {
         if (e.keyCode === 13) {
@@ -53,9 +52,12 @@ export const Busca = () => {
                 <p>
                     Para encontrar as informações de um perfil do GitHub, basta inserir o nome do usuario no campo a baixo!
                 </p>
-                <input placeholder="Digite o nome de usuário do GitHub..." value={busca} onChange={(e) => setBusca(e.target.value)} onKeyDown={buscar} />
+                <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                    <input placeholder="Digite o nome de usuário do GitHub..." value={busca} onChange={(e) => setBusca(e.target.value)} onKeyDown={buscar} />
+                    <img alt="lupa" src="/icons/lupa.png" onClick={fetchDadosUsuario}/>
+                </div>
             </B.Pesquisa>
-            {usuarioEncontrado === false && pesquisando === false && (
+            {usuarioEncontrado === false && (
                 <B.Mensagem>
                     <h2>
                         Usuário não encontrado, por favor, verificar se está digitado corretamente.
