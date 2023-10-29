@@ -8,7 +8,7 @@ import { IRepositorioType } from "../../types/repositorioType";
 
 export const Perfil = () => {
     const dispatch = useDispatch();
-    const usuario = useSelector((state: UsuarioState) => state.usuario);
+    const usuario = useSelector((state: {usuario: UsuarioState}) => state.usuario);
     const [repositorios, setRepositorios] = useState<IRepositorioType[] | []>([]);
     
     async function fetchRepositorios() {

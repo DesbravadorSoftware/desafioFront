@@ -19,7 +19,7 @@ export const Container = styled.div`
         }
     }
 
-    @media(max-width: 480px){
+    @media(max-width: 850px){
         width: 100%;
         height: 80%;
         margin: 0;    
@@ -55,5 +55,8 @@ export const Button = styled.button`
 
     &:hover{
         cursor: pointer;
+    }
+    @media(min-width: 851px){
+        width: 50%
     }
 `

@@ -1,2 +1,0 @@
-export const GETUSUARIO = "GETUSUARIO"
-export const GETREPOSITORIO = "GETREPOSITORIO"

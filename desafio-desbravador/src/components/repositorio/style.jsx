@@ -22,13 +22,11 @@ export const Container = styled.div`
     
     &:hover{
         cursor: pointer;
-        background-color: #3DABC2;
-        color: #FFF;
+        background-color: rgb(61, 171, 194, 0.1);
     }
 
-
     @media(max-width: 480px){
-        width: 90%;
+        width: 80%;
         height: 200px;
     }
 `

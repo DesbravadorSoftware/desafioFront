@@ -8,7 +8,7 @@ import { UsuarioState } from './types/usuarioType';
 import { IRepositorioType, RepositorioState } from './types/repositorioType';
 
 function App() {
-  const usuario = useSelector((state: UsuarioState) => state.usuario);
+  const usuario = useSelector((state: UsuarioState) => state);
   //const repositorioRedux = useSelector((state: RepositorioState)=> state.repositorio);
   const data = localStorage.getItem("repositorio");
   const repositorio = data != null ? JSON.parse(data) : null;

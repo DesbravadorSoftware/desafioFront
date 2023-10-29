@@ -1,19 +1,16 @@
-import React, { useState } from "react";
 import * as D from "./style";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { IUsuarioType, UsuarioState } from "../../types/usuarioType";
+import { UsuarioState } from "../../types/usuarioType";
 import { useDispatch } from "react-redux";
-import { getUsuario } from "../../store/actionCreators";
+import { getUsuario } from "../../store/usuarioReducer";
 
-export const DetalhePerfil = () =>{
+export const DetalhePerfil = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const usuario = useSelector((state: UsuarioState) => state.usuario);
-    
-    console.log(usuario)
+    const usuario = useSelector((state:{usuario: UsuarioState}) => state.usuario);
 
-    function buscar(){
+    function buscar() {
         navigate("/");
         localStorage.clear();
         dispatch(getUsuario({
@@ -31,13 +28,13 @@ export const DetalhePerfil = () =>{
         backgroundImage: `url("${usuario.imagem_avatar}")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-      };
-    
-    return(
+    };
+
+    return (
         <D.Container>
-            <D.Avatar style={avatarStyle}/>
+            <D.Avatar style={avatarStyle} />
             <div className="dados-perfil">
-                <h2>{usuario?.nome}</h2>
+                <h2>{usuario.nome}</h2>
                 <p>{usuario.login}</p>
                 <label>{usuario.email}</label>
                 <p>{usuario.bio}</p>

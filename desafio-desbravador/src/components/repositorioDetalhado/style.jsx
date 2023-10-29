@@ -17,6 +17,7 @@ export const RepositorioDetalhado = styled.div`
     aling-items: start;
     color: #346E75;
     overflow: auto;
+    padding: 10px;
     img{
         margin: 10px;
         height: 30px;
@@ -32,5 +33,6 @@ export const RepositorioDetalhado = styled.div`
     @media(max-width: 480px){
         width: 100%;
         padding: 5px;
+        padding-bottom: 100px;
     }
 `

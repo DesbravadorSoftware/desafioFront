@@ -7,7 +7,7 @@ import { IRepositorioType, RepositorioState } from "../../types/repositorioType"
 import { useSelector } from "react-redux";
 import { UsuarioState } from "../../types/usuarioType";
 import { useDispatch } from "react-redux";
-import { getRepositorio } from "../../store/actionCreators";
+import { getRepositorio } from "../../store/repositorioReducer";
 
 export type props = {
     Repositorios: IRepositorioType[]
@@ -16,7 +16,7 @@ export type props = {
 export const Repositorios = ({Repositorios}: props) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const usuario = useSelector((state: UsuarioState) => state.usuario);
+    const usuario = useSelector((state: UsuarioState) => state);
     const [listarTodos, setListarTodos] = useState(false);
     const [maior, setMaior] = useState(true);
     const [repositorioSelecionado, setRepositorioSelecionado] = useState<IRepositorioType>({
@@ -28,7 +28,7 @@ export const Repositorios = ({Repositorios}: props) => {
         html_url: ""
     });
 
-    //const repositorios = useSelector((state:  RepositorioState ) => state.repositorios);
+    // const repositorios = useSelector((state: {repositorio: RepositorioState} ) => state.repositorio);
 
     const top6 = Repositorios.sort(organizarEstrelas).slice(0, 6);
 
@@ -57,14 +57,14 @@ export const Repositorios = ({Repositorios}: props) => {
         const response = await fetch(`https://api.github.com/repos/${repo.full_name}`)
         if(response.status === 200){
             const data = await response.json();
-            /*dispatch(getRepositorio({
+            dispatch(getRepositorio({
                 name: data.name, 
                 description: data.description, 
                 stargazers_count: data.stargazers_count, 
                 language: data.language,
                 full_name: data.full_name,
                 html_url: data.html_url
-            }));*/
+            }));
             //setRepositorioSelecionado(data);
             localStorage.setItem("repositorio", JSON.stringify(data));
             return data;
@@ -86,7 +86,7 @@ export const Repositorios = ({Repositorios}: props) => {
                 <>
                     <div style={{display: "flex", width: "100%",justifyContent: "center", alignItems: "center"}}>
                         <h1>TOP 6 REPOSITÓRIOS </h1>
-                        <img alt="filtro" src={maior ? "/icons/ordenar_maior.png" : "/icons/ordenar_menor.png"} onClick={()=> setMaior(!maior)}/>
+                        <img alt="filtro" src={maior ? "/icons/ordenar_maior.png" : "/icons/ordenar_menor.png"} style={{color: "#346E75"}} onClick={()=> setMaior(!maior)}/>
                     </div>
                     <R.TopRepositorios>
                         {Array.isArray(top6) && top6.sort(organizarEstrelas).map((repo, index) => {
