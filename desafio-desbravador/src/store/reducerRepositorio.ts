@@ -12,7 +12,7 @@ const initialState: RepositorioState = {
     }
 }
 
-const reducer = (
+const repositorioReducer = (
     state: RepositorioState = initialState,
     action: RepositorioAction
 ): RepositorioState => {
@@ -35,5 +35,5 @@ const reducer = (
     }
 }
 
-export default reducer;
+export default repositorioReducer;
 

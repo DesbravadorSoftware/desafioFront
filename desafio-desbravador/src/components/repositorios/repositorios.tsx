@@ -57,22 +57,27 @@ export const Repositorios = ({Repositorios}: props) => {
         const response = await fetch(`https://api.github.com/repos/${repo.full_name}`)
         if(response.status === 200){
             const data = await response.json();
-            dispatch(getRepositorio({
+            /*dispatch(getRepositorio({
                 name: data.name, 
                 description: data.description, 
                 stargazers_count: data.stargazers_count, 
                 language: data.language,
                 full_name: data.full_name,
                 html_url: data.html_url
-            }));
-            setRepositorioSelecionado(data);
+            }));*/
+            //setRepositorioSelecionado(data);
             localStorage.setItem("repositorio", JSON.stringify(data));
+            return data;
         }
+        return null;
+        
     }
 
     const abrir = async(repo: IRepositorioType) => {
-        await fetchRepositorio(repo);
-        navigate(`/${repo.name}`);
+        const data = await fetchRepositorio(repo);
+        if(data){
+            navigate(`/${repo.name}`);
+        }
     }
 
     return (

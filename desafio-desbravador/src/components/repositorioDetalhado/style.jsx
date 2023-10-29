@@ -4,6 +4,10 @@ export const Container = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
+
+    @media(max-width: 480px){
+        flex-direction: column;
+    }
 `
 export const RepositorioDetalhado = styled.div`
     width: 70%;
@@ -12,6 +16,7 @@ export const RepositorioDetalhado = styled.div`
     justify-content: start;
     aling-items: start;
     color: #346E75;
+    overflow: auto;
     img{
         margin: 10px;
         height: 30px;
@@ -22,5 +27,10 @@ export const RepositorioDetalhado = styled.div`
     }
     label{
         margin-top: 10px;
+    }
+
+    @media(max-width: 480px){
+        width: 100%;
+        padding: 5px;
     }
 `

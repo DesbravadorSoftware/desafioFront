@@ -1,4 +1,5 @@
 import { UsuarioAction, UsuarioState } from "../types/usuarioType"
+import { getUsuario } from "./actionCreators"
 import * as actionTypes from "./actionTypes"
 
 const initialState: UsuarioState = {    
@@ -13,7 +14,7 @@ const initialState: UsuarioState = {
     }
 }
 
-const reducer = (
+const usuarioReducer = (
     state: UsuarioState = initialState,
     action: UsuarioAction
 ): UsuarioState => {
@@ -21,18 +22,10 @@ const reducer = (
         case actionTypes.GETUSUARIO:
             return {
                 ...state,
-                usuario: {
-                    nome: action.usuario.nome,
-                    login: action.usuario.login,
-                    followers: action.usuario.followers,
-                    following: action.usuario.following,
-                    imagem_avatar: action.usuario.imagem_avatar,
-                    email: action.usuario.email,
-                    bio: action.usuario.bio
-                }
+                usuario: action.usuario
             };
     }
     return state
 }
 
-export default reducer
+export default usuarioReducer
