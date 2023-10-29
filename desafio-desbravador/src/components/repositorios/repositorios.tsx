@@ -15,14 +15,16 @@ export const Repositorios = ({Repositorios}: props) => {
     const navigate = useNavigate();
     const usuario = useSelector((state: UsuarioState) => state.usuario);
     const [listarTodos, setListarTodos] = useState(false);
-    const [repositorioAberto, setRepositorioAberto] = useState(false);
     const [maior, setMaior] = useState(true);
     const [repositorioSelecionado, setRepositorioSelecionado] = useState<IRepositorioType>({
         name: "", 
         description: "", 
         stargazers_count: 0, 
         language: "",
+        full_name: "",
+        html_url: ""
     });
+    const [readme, setReadme] = useState("");
 
     //const repositorios = useSelector((state:  RepositorioState ) => state.repositorios);
 
@@ -49,23 +51,21 @@ export const Repositorios = ({Repositorios}: props) => {
     }
 
     
-    async function fetchRepositorio() {
-        const response = await fetch(`https://api.github.com/repos/${}`)
-        const data = await response.json()
+    async function fetchRepositorio(repo: IRepositorioType) {
+        const response = await fetch(`https://api.github.com/repos/${repo.full_name}`)
+        const data = await response.json();
+        setRepositorioSelecionado(data);
+        localStorage.setItem("repositorio", JSON.stringify(data));
     }
 
-    const abrir = (repo: IRepositorioType) => {
-        setRepositorioAberto(true);
-        setRepositorioSelecionado(repo);
-    }
-
-    const atualizarFiltro = () => {
-        setMaior(!maior);
+    const abrir = async(repo: IRepositorioType) => {
+        await fetchRepositorio(repo);
+        navigate(`/${repo.name}`);
     }
 
     return (
         <R.Container>
-            {!listarTodos && !repositorioAberto ? (
+            {!listarTodos ? (
                 <>
                     <div style={{display: "flex", width: "100%",justifyContent: "center", alignItems: "center"}}>
                         <h1>TOP 6 REPOSITÓRIOS </h1>
@@ -94,7 +94,7 @@ export const Repositorios = ({Repositorios}: props) => {
                     </R.TodosRepositorios>
                 </>
             )}
-            <R.Button onClick={() => setListarTodos(!listarTodos)}>{listarTodos && !repositorioAberto ? "TOP 6" : "Listar todos"}</R.Button>
+            <R.Button onClick={() => setListarTodos(!listarTodos)}>{listarTodos ? "TOP 6" : "Listar todos"}</R.Button>
         </R.Container>
     )
 }

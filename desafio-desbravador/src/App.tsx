@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path='' Component={Busca} />
         <Route path='/perfil' Component={Perfil}/>
-        <Route path='/${fullname}' Component={RepositorioDetalhado}/>
+        <Route path='/:fullname' Component={RepositorioDetalhado}/>
       </Routes>
     </div>
   );
