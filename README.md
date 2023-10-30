@@ -38,7 +38,7 @@ https://desafio-front-cyan.vercel.app
 * Na rota https://desafio-front-cyan.vercel.app é possivel buscar um usario do GitHub, caso não encontre, será retornado uma mensagem de erro.
 * Eu, como usuário, desejo **ver os detalhes do usuário** buscado (número de seguidores, número de seguidos, imagem do avatar, e-mail e bio);
 * Ao pesquisar um usuario e esse usuário for encontrado, será direcionado para a rota https://desafio-front-cyan.vercel.app/perfil.
-* Na rota https://desafio-front-cyan.vercel.app/perfil é exibido as informações de Nome, Login, Email, Bio, Seguidores e Seguidos caso essas informações existam, também temos os primeiros 6 repositorios considerando os que tem a maior quantidae de estrelas.
+* Na rota https://desafio-front-cyan.vercel.app/perfil é exibido as informações de Nome, Login, Email, Bio, Seguidores e Seguidos caso essas informações existam, também temos os primeiros 6 repositorios considerando os que tem a menor quantidade de estrelas.
 * Na rota https://desafio-front-cyan.vercel.app/perfil é possivel ordenar de acordo com a maior ou menor quantidade de estrelas, também é possível visualizar todos os repositorios clicando no botão "Listar Todos".
 * Ao clicar em um dos repositorios listados, será direcionado para a rota https://desafio-front-cyan.vercel.app/{nome do repositorio}, com Nome, Descrição, número de estrelas, linguagem e o link para acessar a pagina externa do GitHub.
 * Existe uma verificação que identifica se existe algum usuario armazenado no redux, caso recarregue a pagina, ou tente acessar alguma rota sem ser a principal e ainda não fez a pesquisa, irá aparecer para fazer a busca.
@@ -48,9 +48,6 @@ Rotas:
 * https://desafio-front-cyan.vercel.app/perfil
 * https://desafio-front-cyan.vercel.app/{nome do repositorio}
 
-### **Processo de submissão** ###
-
-O desafio deve ser entregue pelo [GitHub](http://github.com/), com README de instalação, start do projeto e visualização da demo.
 
 A aplicação deve estar hospedada (bônus) ([Heroku](https://www.heroku.com/), [Firebase](https://www.firebase.com/), [Plunker](https://plnkr.co/), [Surge](http://surge.sh/), etc) As URLs deve ser enviada por email.
 
