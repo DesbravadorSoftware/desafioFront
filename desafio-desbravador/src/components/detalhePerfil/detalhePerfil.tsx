@@ -9,7 +9,7 @@ export const DetalhePerfil = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const usuario = useSelector((state:{usuario: UsuarioState}) => state.usuario);
-
+console.log(usuario)
     function buscar() {
         navigate("/");
         dispatch(getUsuario({

@@ -45,6 +45,7 @@ export const Pesquisa = styled.div`
         height: 20px;
         width: 20px;
         margin-top: auto;
+        margin-left: 10px;
     }
     img:hover{
         cursor: pointer;

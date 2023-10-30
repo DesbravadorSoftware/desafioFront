@@ -6,7 +6,7 @@ export const Container = styled.div`
     margin: 5px auto;
     background-color: #FFF;
     border: none;
-    border-radius: 30px;
+    border-radius: 15px;
     box-shadow: 3px 3px 5px gray;
     text-align: left;
     padding: 10px;
@@ -25,7 +25,7 @@ export const Container = styled.div`
         background-color: rgb(61, 171, 194, 0.1);
     }
 
-    @media(max-width: 480px){
+    @media(max-width: 851px){
         width: 80%;
         height: 200px;
     }

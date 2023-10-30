@@ -45,7 +45,7 @@ export const Avatar = styled.div`
     }
 `
 export const Button = styled.button`
-    margin: auto auto 10% auto;
+    margin: auto auto 20% auto;
     height: 45px;
     width: 190px;
     background-color: #3DABC2;
