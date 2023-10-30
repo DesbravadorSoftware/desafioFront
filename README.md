@@ -1,44 +1,53 @@
 # Desafio Front-End da Desbravador Software
+Desafio para a vaga de Front-End na empresa Desbravador Software
+Link para acessar o projeto em produção: https://desafio-front-cyan.vercel.app
 
-**Proposta:**  
-Implementar uma aplicação client-side, que consulte a API do GitHub e mostre os repositórios mais populares de um determinado usuário. Esta aplicação deve funcionar nos navegadores mais recentes do mercado.
+**Rota de Busca**
+https://desafio-front-cyan.vercel.app
+![buscar](https://github.com/MylennaAlcantara/desafioFront/assets/93752575/f5cdf81a-742f-46ac-904c-6f3dbff09aaa)
 
-**API**: [https://developer.github.com/v3/](https://developer.github.com/v3/)
+**Rota de Perfil**
+https://desafio-front-cyan.vercel.app/perfil
+![perfil](https://github.com/MylennaAlcantara/desafioFront/assets/93752575/e2dbce75-405f-4c5d-9d19-d6fbf8b3143e)
 
-### **Requisitos técnicos** ###
-* **Preferencialmente não utilizar frameworks** Vue, Angular, etc.
-* * Utilizar React não será eliminatório
-* É obrigatório o uso de rotas.
-* Pode usar jquery ou Fetch API, porém **axios** é mais legal.
-* O layout deve ser responsivo, seguindo os padrões Bootstrap.
+**Rota do Repositorio Aberto**
+https://desafio-front-cyan.vercel.app
+![Repositorio](https://github.com/MylennaAlcantara/desafioFront/assets/93752575/6c11926d-6b8d-44ad-a438-ff32296947bc)
 
-### **Requisitos de negócio** ###
 
-* Eu, como usuário, desejo **buscar** por um usuário do GitHub;
+**Instalação:**  
+* Passo 1:
+  Caso ainda não possua o Node instalado em sua maquina, por favor realizar o download e instalação do mesmo através do link: https://nodejs.org/en/download
+* Passo 2:
+  * Acessar o repositorio: https://github.com/MylennaAlcantara/desafioFront , caso não possua IDE para executar o projeto, realize o download do arquivo zip, após feito o download, descompacte a pasta e entre na pasta "desafio-desbravador", com a pasta aberta, segure a tecla SHIFT+Botão direito do mouse, abra o terminal do powerShell, e execute o comando: nmp install, após concluir a instalação, digite o comando: npm start, e em seguida será aberta uma nova janela com com a págnina.
+  * Caso utilize IDE, acesse o repositorio e realize o clone do repositorio, abra o terminal na pasta "desafio-desbravado", digite o comando: npm install, e após concluir digite: npm start.
+  * Caso a página não abra, basta abrir o navegador e digital http://localhost:3000 ou http://seuIpAqui:3000
+
+### **Tecnologias Utilizada** ###
+* React Js.
+* TypeScript.
+* React Router Dom.
+* Redux.
+* React Hooks.
+* Fetch
+* Styled Components.
+* Reponsividade.
+
+### **Funcionalidades** ###
+
+* Na rota https://desafio-front-cyan.vercel.app é possivel buscar um usario do GitHub, caso não encontre, será retornado uma mensagem de erro.
 * Eu, como usuário, desejo **ver os detalhes do usuário** buscado (número de seguidores, número de seguidos, imagem do avatar, e-mail e bio);
-* Eu, como usuário, desejo **ver a listagem dos repositórios** desse usuário que foi buscado, ordenados pelo número decrescente de estrelas;
-* Eu, como usuário, desejo poder **alterar a ordem da listagem** de repositórios;
-* Eu, como usuário, desejo ver uma **página com os detalhes** de um repositório (nome, descrição, ,número de estrelas, linguagem e um link externo para a página do repositório no GitHub), que pode ser clicado na listagem dos repositórios;
+* Ao pesquisar um usuario e esse usuário for encontrado, será direcionado para a rota https://desafio-front-cyan.vercel.app/perfil.
+* Na rota https://desafio-front-cyan.vercel.app/perfil é exibido as informações de Nome, Login, Email, Bio, Seguidores e Seguidos caso essas informações existam, também temos os primeiros 6 repositorios considerando os que tem a menor quantidade de estrelas.
+* Na rota https://desafio-front-cyan.vercel.app/perfil é possivel ordenar de acordo com a maior ou menor quantidade de estrelas, também é possível visualizar todos os repositorios clicando no botão "Listar Todos".
+* Ao clicar em um dos repositorios listados, será direcionado para a rota https://desafio-front-cyan.vercel.app/{nome do repositorio}, com Nome, Descrição, número de estrelas, linguagem e o link para acessar a pagina externa do GitHub.
+* Existe uma verificação que identifica se existe algum usuario armazenado no redux, caso recarregue a pagina, ou tente acessar alguma rota sem ser a principal e ainda não fez a pesquisa, irá aparecer para fazer a busca.
+  
+Rotas:
+* https://desafio-front-cyan.vercel.app
+* https://desafio-front-cyan.vercel.app/perfil
+* https://desafio-front-cyan.vercel.app/{nome do repositorio}
 
-### **Critérios de Avaliação** ###
-
-* **Organização do projeto**: Avalia a estrutura do projeto, documentação e uso de controle de versão;
-* **Inovação tecnológica**: Avalia o uso de tecnologias mais recentes, como novas características ES6 da linguagem;
-* **Coerência**: Avalia se os requisitos foram atendidos;
-* **Boas práticas**: Avalia se o projeto segue boas práticas de desenvolvimento, incluindo segurança e otimização;
-
-
-### **Observação** ###
-A performance e a adequação dos recursos serão considerados durante o processo de avaliação. Alem disso, a avaliação ocorrerá em todos os componentes do projeto (JavaScript, HTML e CSS).
-
-As APIs a serem consumidas são:
-* Detalhes de um usuário: [https://api.github.com/users/{username}](https://api.github.com/users/{username})
-* Repositórios de um usuário: [https://api.github.com/users/{username}/repos](https://api.github.com/users/{username}/repos)
-* Detalhes de um repositório: [https://api.github.com/repos/{full_name}](https://api.github.com/repos/{full_name})
-
-### **Processo de submissão** ###
-
-O desafio deve ser entregue pelo [GitHub](http://github.com/), com README de instalação, start do projeto e visualização da demo.
 
 A aplicação deve estar hospedada (bônus) ([Heroku](https://www.heroku.com/), [Firebase](https://www.firebase.com/), [Plunker](https://plnkr.co/), [Surge](http://surge.sh/), etc) As URLs deve ser enviada por email.
 
