@@ -14,7 +14,7 @@ export const Repositorios = ({Repositorios}: props) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [listarTodos, setListarTodos] = useState(false);
-    const [maior, setMaior] = useState(true);
+    const [maior, setMaior] = useState(false);
     const top6 = Repositorios.sort(organizarEstrelas).slice(0, 6);
 
     function organizarEstrelas(a: IRepositorioType, b: IRepositorioType){
