@@ -48,9 +48,3 @@ Rotas:
 * https://desafio-front-cyan.vercel.app/perfil
 * https://desafio-front-cyan.vercel.app/{nome do repositorio}
 
-
-A aplicação deve estar hospedada (bônus) ([Heroku](https://www.heroku.com/), [Firebase](https://www.firebase.com/), [Plunker](https://plnkr.co/), [Surge](http://surge.sh/), etc) As URLs deve ser enviada por email.
-
-Qualquer dúvida em relação ao desafio, responderemos por e-mail.
-
-Bom trabalho!
