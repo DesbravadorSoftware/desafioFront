@@ -30,12 +30,12 @@ export default function HomePage() {
       <div className={styles["d-container"]}>
         <Container className={styles["d-body"]}>
           <div className={styles["search-section"]}>
-            <div className={styles["image-or-profile-section"]}>
+            <div className={styles["imageContainer"]}>
               <Image
                 src={searchImage}
                 alt="Search"
-                width={320}
-                height={300}
+                width={310}
+                height={290}
                 priority
               />
             </div>
