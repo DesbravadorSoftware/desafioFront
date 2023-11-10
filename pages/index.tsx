@@ -4,8 +4,6 @@ import { Container } from "@mui/material";
 import Image from "next/image";
 import searchImage from "../src/assets/img/search.png";
 import styles from "./app.module.scss";
-
-//import { getUserDetails } from "../src/api/githubAPI";
 import { DSearch } from "../src/components/DSearch";
 import { useUser } from "../src/contexts/UserContext";
 
@@ -36,9 +34,8 @@ export default function HomePage() {
               <Image
                 src={searchImage}
                 alt="Search"
-                width={300}
+                width={320}
                 height={300}
-                style={{ marginLeft: "30px" }}
                 priority
               />
             </div>
