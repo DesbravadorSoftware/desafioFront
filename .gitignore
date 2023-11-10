@@ -13,6 +13,7 @@ logs/
 /dist/
 /out/
 /public/
+.next/
 
 # local
 .env.local
