@@ -1,14 +1,16 @@
 .repo-link {
-  text-decoration: none !important;
-  color: #2e3545 !important;
-  font-family: "Open Sans", "Tahoma", "Helvetica", "Arial", sans-serif !important;
-  transition: color 0.3s ease;
-  font-weight: 500 !important;
+  font-weight: 400;
+  color: black !important;
+  text-transform: uppercase;
+  font-family: "Open Sans", "Tahoma", "Helvetica", "Arial", sans-serif;
   cursor: pointer;
 }
 
-.repo-link:hover {
-  color: #f2f2f2;
-  font-weight: bolder;
-  background-color: transparent;
+.stargazers-link {
+  text-decoration: none !important;
+  color: black !important;
+  font-weight: bold !important;
+  font-family: "Open Sans", "Tahoma", "Helvetica", "Arial", sans-serif;
+  font-size: 14px;
+  padding-right: 10px;
 }

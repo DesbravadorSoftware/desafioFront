@@ -1,1 +1,34 @@
-//
+.customNavContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.backButton {
+  background-color: gray;
+  color: black;
+  border-radius: 50%;
+  height: 40px;
+  margin-right: 14px;
+}
+
+.backIcon {
+  font-size: medium;
+  color: white;
+}
+
+.tabs {
+  .MuiTabs-indicator {
+    background-color: #000000;
+  }
+
+  .css-1t4lqmc-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: #000000;
+  }
+}
+
+.tabIcon {
+  font-size: 30px;
+  color: black;
+  border-radius: 50%;
+}

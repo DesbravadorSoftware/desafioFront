@@ -27,14 +27,14 @@ const CustomNav: React.FC<CustomNavProps> = ({ value, onChange }) => {
         onClick={handleBackClick}
         aria-label="Voltar para home"
         sx={{
-          backgroundColor: "gray", 
-          color:"black",
+          backgroundColor: "gray",
+          color: "black",
           borderRadius: "50%",
-          height: "40px",
+          height: "34px",
           marginRight: "14px",
         }}
       >
-        <ArrowBackIcon sx={{ color: "white" }} />
+        <ArrowBackIcon sx={{ fontSize: "medium", color: "white" }} />
       </IconButton>
 
       <Tabs
@@ -43,11 +43,20 @@ const CustomNav: React.FC<CustomNavProps> = ({ value, onChange }) => {
         onChange={onChange}
         aria-label="Icon tabs example"
         centered
+        sx={{
+          ".MuiTabs-indicator": {
+            backgroundColor: "#000000",
+          },
+          ".css-1t4lqmc-MuiButtonBase-root-MuiTab-root.Mui-selected": {
+            color: "#000000",
+          },
+        }}
       >
         <Tab
           icon={
             <PhoneIcon
               sx={{
+                fontSize: "30px",
                 color: "black",
                 borderRadius: "50%",
               }}
@@ -59,6 +68,7 @@ const CustomNav: React.FC<CustomNavProps> = ({ value, onChange }) => {
           icon={
             <FavoriteIcon
               sx={{
+                fontSize: "30px",
                 color: "black",
                 borderRadius: "50%",
               }}
@@ -70,6 +80,7 @@ const CustomNav: React.FC<CustomNavProps> = ({ value, onChange }) => {
           icon={
             <PersonPinIcon
               sx={{
+                fontSize: "30px",
                 color: "black",
                 borderRadius: "50%",
               }}

@@ -12,6 +12,8 @@ import searchImage from "../src/assets/img/2.png";
 import searchImage2 from "../src/assets/img/7.png";
 import searchImage3 from "../src/assets/img/15.png";
 
+import CircularProgress from "@mui/material/CircularProgress";
+
 const ProfileUserPage = () => {
   const router = useRouter();
   const { username } = router.query;
@@ -50,9 +52,20 @@ const ProfileUserPage = () => {
     setSelectedRepo(repo);
     setTabValue(2);
   };
-
   if (loading) {
-    return <div>Carregando...</div>;
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          width: "100vw",
+        }}
+      >
+        <CircularProgress color="inherit" />
+      </div>
+    );
   }
 
   if (error) {
@@ -64,7 +77,7 @@ const ProfileUserPage = () => {
   }
 
   const tabImages = [searchImage, searchImage2, searchImage3];
-  const tabTitles = ["Perfil Github", "Repositórios", "Detalhes da Repo"];
+  const tabTitles = ["Perfil Github", "Repositórios", "Detalhes do Repo"];
 
   return (
     <div className={styles.dContainer}>
@@ -86,7 +99,7 @@ const ProfileUserPage = () => {
         {tabValue === 1 && (
           <DTableRepos repos={repos} onRepoSelect={handleRepoSelect} />
         )}
-        {tabValue === 2 && selectedRepo && <DRepoDetail repo={selectedRepo} />}
+        {tabValue === 2 && <DRepoDetail repo={selectedRepo} />}
       </div>
     </div>
   );

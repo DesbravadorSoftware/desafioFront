@@ -11,6 +11,8 @@ import TableSortLabel from "@mui/material/TableSortLabel";
 import Paper from "@mui/material/Paper";
 import Link from "@mui/material/Link";
 
+import StarIcon from "@mui/icons-material/Star";
+
 interface RepoData {
   name: string;
   stargazers_count: number;
@@ -71,7 +73,6 @@ const DTableRepos: React.FC<DTableReposProps> = ({ repos, onRepoSelect }) => {
   const getRowColor = (index: number) => {
     return index % 2 === 0 ? "#f7f7f7" : "#ffffff";
   };
-
   return (
     <TableContainer
       component={Paper}
@@ -91,7 +92,7 @@ const DTableRepos: React.FC<DTableReposProps> = ({ repos, onRepoSelect }) => {
                 direction={orderBy === "name" ? order : "asc"}
                 onClick={() => handleRequestSort("name")}
               >
-                Repositórios
+                <strong>REPOS</strong>
               </TableSortLabel>
             </TableCell>
             <TableCell align="right">
@@ -100,7 +101,7 @@ const DTableRepos: React.FC<DTableReposProps> = ({ repos, onRepoSelect }) => {
                 direction={orderBy === "stargazers_count" ? order : "asc"}
                 onClick={() => handleRequestSort("stargazers_count")}
               >
-                Estrelas
+                <StarIcon />
               </TableSortLabel>
             </TableCell>
           </TableRow>
@@ -117,7 +118,11 @@ const DTableRepos: React.FC<DTableReposProps> = ({ repos, onRepoSelect }) => {
                   <a className={styles["repo-link"]}>{repo.name}</a>
                 </TableCell>
                 <TableCell align="right">
-                  <Link href={repo.stargazers_url} target="_blank">
+                  <Link
+                    href={repo.stargazers_url}
+                    target="_blank"
+                    className={styles["stargazers-link"]}
+                  >
                     {repo.stargazers_count}
                   </Link>
                 </TableCell>

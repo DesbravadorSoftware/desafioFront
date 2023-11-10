@@ -11,5 +11,5 @@ export const images: { [key: number]: string } = {
 export const titles: { [key: number]: string } = {
   0: "Perfil Github",
   1: "Repositórios",
-  2: "Detalhes da Repo",
+  2: "Detalhes do Repo",
 };
