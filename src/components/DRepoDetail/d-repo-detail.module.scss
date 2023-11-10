@@ -1,0 +1,86 @@
+.profileContainer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.sidebar {
+  min-width: 50px;
+  background-color: rgba(0, 186, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+  border-left: 3px solid rgba(0, 0, 0, 0.05);
+  margin: 0 20px;
+  height: 300px;
+}
+
+.menuIcon {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  svg {
+    font-size: 24px;
+  }
+}
+.profileCard {
+  background-color: rgb(125, 124, 124, 0.1);
+  color: rgb(125, 124, 124);
+  border-radius: 1.14286rem;
+  border: 1px solid #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin-top: 15px;
+  margin-left: 35px;
+  position: relative;
+}
+
+.avatar {
+  width: 100%;
+  max-width: 100px;
+  height: 100px;
+  display: flex;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid #000000;
+  overflow: hidden;
+  margin-left: 20px;
+}
+
+.userDetails {
+  margin-left: 20px;
+  text-align: left;
+  margin-right: 25px;
+  width: 200px;
+  color: #2e3545;
+  font-family: "Open Sans", "Tahoma", "Helvetica", "Arial", sans-serif;
+  h2 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+.fadeIn {
+  animation: fadeInAnimation ease 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
