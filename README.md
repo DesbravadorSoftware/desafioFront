@@ -1,47 +1,37 @@
-# Desafio Front-End da Desbravador Software
+# Busca GitHub
 
-**Proposta:**  
-Implementar uma aplicação client-side, que consulte a API do GitHub e mostre os repositórios mais populares de um determinado usuário. Esta aplicação deve funcionar nos navegadores mais recentes do mercado.
+## Descrição
 
-**API**: [https://developer.github.com/v3/](https://developer.github.com/v3/)
+O projeto "Consulta GitHub" é uma aplicação web que permite aos usuários buscar por nomes de usuários no GitHub e visualizar informações sobre esses usuários, incluindo a listagem de seus repositórios, classificá-los, ver o número de estrelas e explorar os detalhes de cada repositório.
 
-### **Requisitos técnicos** ###
-* **Preferencialmente não utilizar frameworks** Vue, Angular, etc.
-* * Utilizar React não será eliminatório
-* É obrigatório o uso de rotas.
-* Pode usar jquery ou Fetch API, porém **axios** é mais legal.
-* O layout deve ser responsivo, seguindo os padrões Bootstrap.
+## Tecnologias Utilizadas
 
-### **Requisitos de negócio** ###
+- React
+- NextJS
+- TypeScript
+- Sass com BEM Naming
+- Context API
 
-* Eu, como usuário, desejo **buscar** por um usuário do GitHub;
-* Eu, como usuário, desejo **ver os detalhes do usuário** buscado (número de seguidores, número de seguidos, imagem do avatar, e-mail e bio);
-* Eu, como usuário, desejo **ver a listagem dos repositórios** desse usuário que foi buscado, ordenados pelo número decrescente de estrelas;
-* Eu, como usuário, desejo poder **alterar a ordem da listagem** de repositórios;
-* Eu, como usuário, desejo ver uma **página com os detalhes** de um repositório (nome, descrição, ,número de estrelas, linguagem e um link externo para a página do repositório no GitHub), que pode ser clicado na listagem dos repositórios;
+## Pré-requisitos
 
-### **Critérios de Avaliação** ###
+Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) instalado em sua máquina. Você também precisará de um ambiente de desenvolvimento para executar o projeto.
 
-* **Organização do projeto**: Avalia a estrutura do projeto, documentação e uso de controle de versão;
-* **Inovação tecnológica**: Avalia o uso de tecnologias mais recentes, como novas características ES6 da linguagem;
-* **Coerência**: Avalia se os requisitos foram atendidos;
-* **Boas práticas**: Avalia se o projeto segue boas práticas de desenvolvimento, incluindo segurança e otimização;
+## Instalação
 
+1. Clone o repositório para o seu ambiente local: (`git clone https://github.com/seu-usuario/consulta-github.git`)
 
-### **Observação** ###
-A performance e a adequação dos recursos serão considerados durante o processo de avaliação. Alem disso, a avaliação ocorrerá em todos os componentes do projeto (JavaScript, HTML e CSS).
+2. Instale o projeto: (`npm i`)
 
-As APIs a serem consumidas são:
-* Detalhes de um usuário: [https://api.github.com/users/{username}](https://api.github.com/users/{username})
-* Repositórios de um usuário: [https://api.github.com/users/{username}/repos](https://api.github.com/users/{username}/repos)
-* Detalhes de um repositório: [https://api.github.com/repos/{full_name}](https://api.github.com/repos/{full_name})
+3. Rode o projeto: (`npm run dev`)
 
-### **Processo de submissão** ###
+4. Build da aplicacao: (`npm run build`)
 
-O desafio deve ser entregue pelo [GitHub](http://github.com/), com README de instalação, start do projeto e visualização da demo.
+## Uso
 
-A aplicação deve estar hospedada (bônus) ([Heroku](https://www.heroku.com/), [Firebase](https://www.firebase.com/), [Plunker](https://plnkr.co/), [Surge](http://surge.sh/), etc) As URLs deve ser enviada por email.
+1. Na página inicial, você verá um campo de pesquisa. Digite o nome de usuário do GitHub que deseja consultar e pressione "Enter" ou clique no botão de pesquisa.
 
-Qualquer dúvida em relação ao desafio, responderemos por e-mail.
+2. Após a consulta, você verá uma lista de repositórios relacionados ao usuário consultado. Você pode classificar os repositórios clicando nos cabeçalhos da tabela.
 
-Bom trabalho!
+3. Clique no número de estrelas de um repositório para ser redirecionado para a página de estrelas desse repositório no GitHub.
+
+4. Para ver os detalhes de um repositório, clique no nome do repositório. Você será redirecionado para a página de detalhes desse repositório no GitHub.
