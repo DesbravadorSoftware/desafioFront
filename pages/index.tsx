@@ -38,7 +38,7 @@ export default function HomePage() {
                 alt="Search"
                 width={300}
                 height={300}
-                style={{ marginLeft: "10px" }}
+                style={{ marginLeft: "30px" }}
                 priority
               />
             </div>
