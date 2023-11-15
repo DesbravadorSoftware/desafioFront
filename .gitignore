@@ -1,0 +1,50 @@
+# cache do npm
+.npm
+
+# node_modules
+node_modules/
+
+# Ignorar arquivos de log
+logs/
+*.log
+
+# build e distribuição
+/build/
+/dist/
+/out/
+/public/
+.next/
+
+# local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# config IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# temporários
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+
+# ambiente
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# eslint
+/.eslintcache
+/.tscache
+
+# Iusky
+.husky/
+.huskyrc
